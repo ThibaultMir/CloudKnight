@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cclrq1v7xquyy"]
-
-[ext_resource type="Texture2D" uid="uid://dojwqjmhgmhm7" path="res://Assets/weapon.png" id="1_thjnn"]
-
-[node name="Area2D" type="Area2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.09)
-texture = ExtResource("1_thjnn")
