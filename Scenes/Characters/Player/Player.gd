@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-@onready var animated_sprite = get_node("AnimatedSprite") 
+@onready var animated_sprite = get_node("AnimatedSprite")
+var bullet = preload("res://Scenes/bullet.tscn")
+var bullet_speed = 2000 
 
 var speed = 300.0
 var direction = Vector2(0, 0)
@@ -19,12 +21,19 @@ func _input(event : InputEvent):
 	direction.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
 	direction = direction.normalized()
 	
-	if (direction == Vector2.ZERO):
-		animated_sprite.stop()
-		animated_sprite.set_frame(0)
-
 	match(direction):
 		Vector2.RIGHT: animated_sprite.play("MoveRight")
 		Vector2.LEFT: animated_sprite.play("MoveLeft")
 		Vector2.DOWN: animated_sprite.play("MoveDown")
 		Vector2.UP: animated_sprite.play("MoveUp")
+		Vector2.ZERO:
+			animated_sprite.stop()
+			animated_sprite.set_frame(0)
+	
+	if Input.is_action_just_pressed("Click"):
+		fire()
+
+func fire():
+	var b = bullet.instantiate()
+	owner.add_child(b)
+	b.transform = $SpawnBullet.global_transform
