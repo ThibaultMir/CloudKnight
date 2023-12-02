@@ -17,8 +17,8 @@ func _process(delta):
 	move_and_slide()
 
 func _input(event : InputEvent):
-	direction.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-	direction.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
+	direction.x = int(Input.is_action_pressed("RIGHT")) - int(Input.is_action_pressed("LEFT"))
+	direction.y = int(Input.is_action_pressed("DOWN")) - int(Input.is_action_pressed("UP"))
 	direction = direction.normalized()
 	
 	match(direction):
