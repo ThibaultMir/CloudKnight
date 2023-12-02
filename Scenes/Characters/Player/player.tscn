@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://m4pj47b2cj7q"]
+[gd_scene load_steps=21 format=3 uid="uid://m4pj47b2cj7q"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/Player/Player.gd" id="1_v56us"]
 [ext_resource type="Texture2D" uid="uid://cdae73sv85wlw" path="res://Scenes/Characters/Player/Character_SpriteSheet.png" id="2_84cbj"]
@@ -138,6 +138,8 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rxfma"]
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(565, 325)
 script = ExtResource("1_v56us")
@@ -146,3 +148,7 @@ script = ExtResource("1_v56us")
 sprite_frames = SubResource("SpriteFrames_j1oyf")
 animation = &"MoveUp"
 metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 3
+shape = SubResource("CircleShape2D_rxfma")
